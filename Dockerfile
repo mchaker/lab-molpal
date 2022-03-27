@@ -30,4 +30,4 @@ RUN conda install -c conda-forge rdkit
 RUN pip install git+https://github.com/reymond-group/map4@v1.0
 # install pyscreener
 RUN pip install pyscreener
-COPY . /
+COPY . /molpal/.
