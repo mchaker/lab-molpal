@@ -16,7 +16,7 @@ RUN . "/root/miniconda3/etc/profile.d/conda.sh"
 ENV PATH="/root/miniconda3/condabin:${PATH}"
 COPY environment.yml /
 RUN conda config --append channels conda-forge
-RUN conda create -f environment.yml --name molpal
+RUN conda env create -f environment.yml && conda clean -a
 # Add conda installation dir to PATH (instead of doing 'conda activate')
 # ENV PATH /opt/conda/envs/molpal/bin:$PATH
 # # Switch to the new environment:
