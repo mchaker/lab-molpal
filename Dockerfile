@@ -6,7 +6,11 @@ RUN apt-get install -y tmux wget curl git
 
 # install adfr
 RUN wget https://ccsb.scripps.edu/adfr/download/1028/
-# Install the conda environment
+# Install conda and the conda environment
+RUN wget -q -P . https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+RUN bash ./Miniconda3-latest-Linux-x86_64.sh -b
+RUN rm Miniconda3-latest-Linux-x86_64.sh
+RUN conda create --name colabfold-conda python=3.7 -y
 COPY environment.yml /
 RUN conda env create -f /environment.yml -n molpal && conda clean -a
 # Add conda installation dir to PATH (instead of doing 'conda activate')

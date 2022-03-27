@@ -177,3 +177,4 @@ lightning_logs
 prep_glide_csv.py
 *.bz2
 *.cxsmiles
+data/external/index.html
