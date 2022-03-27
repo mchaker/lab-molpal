@@ -15,11 +15,12 @@ RUN bash ./Miniconda3-latest-Linux-x86_64.sh -b
 RUN . "/root/miniconda3/etc/profile.d/conda.sh"
 ENV PATH="/root/miniconda3/condabin:${PATH}"
 COPY environment.yml /
-RUN conda create -f lab-molpal/environment.yml --name molpal-conda && conda clean -a
+RUN conda config --append channels conda-forge
+RUN conda create -f environment.yml --name molpal
 # Add conda installation dir to PATH (instead of doing 'conda activate')
 # ENV PATH /opt/conda/envs/molpal/bin:$PATH
 # # Switch to the new environment:
-SHELL ["conda", "run", "-n", "molpal-conda", "/bin/bash", "-c"] 
+SHELL ["conda", "run", "-n", "molpal", "/bin/bash", "-c"] 
 
 # install dependency packages
 RUN pip install optuna
