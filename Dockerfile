@@ -1,4 +1,4 @@
-FROM nvidia/cuda:11.6.0-base-ubuntu20.04
+FROM nvidia/cuda:11.6.0-base-ubuntu20.04 as base
 # install basics 
 RUN apt-get update
 RUN apt-get install -y tmux wget curl git
@@ -31,3 +31,6 @@ RUN pip install git+https://github.com/reymond-group/map4@v1.0
 # install pyscreener
 RUN pip install pyscreener
 COPY . /molpal/.
+
+# FROM base as test
+# RUN python scripts/fingerprints.py --library libraries/Enamine50k.csv.gz --fingerprint pair --length 2048 --radius 2 --name libraries/fps_enamine50k
