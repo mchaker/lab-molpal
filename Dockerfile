@@ -31,6 +31,7 @@ RUN pip install git+https://github.com/reymond-group/map4@v1.0
 # install pyscreener
 RUN pip install pyscreener
 COPY . /molpal/.
+WORKDIR molpal
 
 # FROM base as test
 # RUN python scripts/fingerprints.py --library libraries/Enamine50k.csv.gz --fingerprint pair --length 2048 --radius 2 --name libraries/fps_enamine50k
