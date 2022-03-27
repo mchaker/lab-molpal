@@ -7,12 +7,13 @@ RUN apt-get install -y libstdc++6 gcc
 RUN wget https://ccsb.scripps.edu/adfr/download/1028/ADFRsuite_Linux-x86_64_1.0_install
 RUN chmod a+x ADFRsuite_Linux-x86_64_1.0_install
 RUN ./ADFRsuite_Linux-x86_64_1.0_install
+# RUN rm ADFRsuite_Linux-x86_64_1.0_install
 # Install conda and the conda environment
 RUN wget -q -P . https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 RUN bash ./Miniconda3-latest-Linux-x86_64.sh -b
 # RUN rm Miniconda3-latest-Linux-x86_64.sh
-# RUN . "./conda/etc/profile.d/conda.sh"
-# ENV PATH="/conda/condabin:${PATH}"
+RUN . "/root/miniconda3/etc/profile.d/conda.sh"
+ENV PATH="/root/miniconda3/condabin:${PATH}"
 # RUN conda env create -f /environment.yml -n molpal && conda clean -a
 # # Add conda installation dir to PATH (instead of doing 'conda activate')
 # ENV PATH /opt/conda/envs/molpal/bin:$PATH
