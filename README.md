@@ -68,7 +68,7 @@ If you wish to prepare this file ahead of time, you can use [`scripts/fingerprin
 
 _Ex._: To prepare the fingerprints file corresopnding to the sample command below, issue the following command:
 
-`python scripts/fingerprints.py --library libraries/Enamine50k.csv.gz --fingerprint pair --length 2048 --radius 2 --name libraries/fps_enamine50k`
+`python scripts/fingerprints.py --libraries libraries/Enamine50k.csv.gz --fingerprint pair --length 2048 --radius 2 --name libraries/fps_enamine50k`
 
 The resulting fingerprint file will be located in your current working directory as `libraries/fps_enamine50k.h5`. To use this in the sample command below, add `--fps libraries/fps_enamine50k.h5` to the argument list.
 
