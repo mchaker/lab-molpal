@@ -23,30 +23,20 @@ This repository contains the source of MolPAL, a software for the accelerated di
 - [Reproducing Experimental Results](#reproducing-experimental-results)
 - [Citation](#citation)
 
-## Requirements
-- Python (>= 3.6)
-
-_if utilizing GPU accelerated model training and inference_
-- CUDA (>= 10.2)
-_if utilizing distributed GPU accelerated model training and inference_
-- CUDA (>= 11.1)
-
-_if performing docking online_
-- the appropriate requirements as listed in the `pyscreener` [README](https://github.com/coleygroup/pyscreener)
-
 ## Installation
 The first step in installing MolPAL is to clone this repository: `git clone <this_repo>`
 
-The easiest way to install all dependencies is to use conda along with the supplied [environment.yml](environment.yml) file, but you may also install them manually, if desired. All libraries listed in that file are __required__ before using `MolPAL`
+The easiest way to run this tool is to use the lab-molpal container stored on the github container registry (right side bar). Alternatively, you can install all dependencies within conda along with the supplied [environment.yml](environment.yml) file. If this is still too easy, you may also install them manually, if desired. All libraries listed in that file are __required__ before using `MolPAL`
 
-The following packages are _optional_ to install before running MolPAL:
-- cudatoolkit: whichever version matches your CUDA build if utilizing GPU acceleration for PyTorch-based models (MPN)
-- [map4](https://github.com/reymond-group/map4) and [tmap](https://github.com/reymond-group/tmap): if utilizing the map4 fingerprint
-- [optuna](https://optuna.readthedocs.io/en/stable/installation.html): if planning to perform hyperparameter optimization
-- matplotlib: to generate plots from the publication
-- seaborn: to generate plots from the publication
+### setup via ghcr
+```
+docker run -it --rm ghcr.io/labdao/lab-molpal:main"
+# inside the container:
+source /root/miniconda3/etc/profile.d/conda.sh
+conda activate molpal
+```
 
-#### setup via conda
+### setup via conda
 __NOTE__: the `environment.yml` must be edited to reflect your machine's setup. To do this, uncomment out the appropriate line depending on your CUDA version or if you lack a GPU entirely. If you need a lower CUDA version than those specified in the environment YAML file, comment out the PyTorch line as well and go to the [pytorch wesbite](https://pytorch.org/get-started/locally/) to set the channels and versions of both the pytorch and cudatoolkit packages properly.
 
 0. (if necessary) [install conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/)
