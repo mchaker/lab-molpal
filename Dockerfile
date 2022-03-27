@@ -10,7 +10,7 @@ RUN ./ADFRsuite_Linux-x86_64_1.0_install
 # Install conda and the conda environment
 RUN wget -q -P . https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 RUN bash ./Miniconda3-latest-Linux-x86_64.sh -b
-RUN rm Miniconda3-latest-Linux-x86_64.sh
+# RUN rm Miniconda3-latest-Linux-x86_64.sh
 # RUN . "./conda/etc/profile.d/conda.sh"
 # ENV PATH="/conda/condabin:${PATH}"
 # RUN conda env create -f /environment.yml -n molpal && conda clean -a
