@@ -15,7 +15,7 @@ RUN bash ./Miniconda3-latest-Linux-x86_64.sh -b
 RUN . "/root/miniconda3/etc/profile.d/conda.sh"
 ENV PATH="/root/miniconda3/condabin:${PATH}"
 COPY environment.yml /
-RUN conda env create -f lab-molpal/environment.yml --name molpal-conda && conda clean -a
+RUN conda create -f lab-molpal/environment.yml --name molpal-conda && conda clean -a
 # Add conda installation dir to PATH (instead of doing 'conda activate')
 # ENV PATH /opt/conda/envs/molpal/bin:$PATH
 # # Switch to the new environment:
