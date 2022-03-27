@@ -14,12 +14,13 @@ RUN bash ./Miniconda3-latest-Linux-x86_64.sh -b
 # RUN rm Miniconda3-latest-Linux-x86_64.sh
 RUN . "/root/miniconda3/etc/profile.d/conda.sh"
 ENV PATH="/root/miniconda3/condabin:${PATH}"
-# RUN conda env create -f /environment.yml -n molpal && conda clean -a
+COPY environment.yml /
+RUN conda env create -f environment.yml && conda clean -a
 # # Add conda installation dir to PATH (instead of doing 'conda activate')
 # ENV PATH /opt/conda/envs/molpal/bin:$PATH
 # # Switch to the new environment:
 # SHELL ["conda", "run", "-n", "molpal", "/bin/bash", "-c"] 
-# COPY environment.yml /
+
 # # install dependency packages
 # RUN pip install optuna
 # RUN conda install -c tmap tmap
