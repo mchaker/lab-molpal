@@ -33,12 +33,13 @@ def main():
         if 'redis_password' in os.environ:
             ray.init(
                 address=os.environ["ip_head"],
-                _redis_password=os.environ['redis_password']
+                _redis_password=os.environ['redis_password'],
+                dashboard_host='0.0.0.0'
             )
         else:
-            ray.init(address='auto')
+            ray.init(address='auto', dashboard_host='0.0.0.0')
     except ConnectionError:
-        ray.init()
+        ray.init(dashboard_host='0.0.0.0')
     except PermissionError:
         print('Failed to create a temporary directory for ray')
         raise
